@@ -1,0 +1,37 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: hmdp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://8.137.11.22:3306/hmdp?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 'lijun456789'
+  redis:
+    host: 8.137.11.22
+    port: 6379
+    password: 1234567
+    lettuce:
+      pool:
+        max-active: 11
+        max-idle: 11
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+mybatis-plus:
+  type-aliases-package: com.hmdp.entity # 别名扫描包
+logging:
+  level:
+    com.hmdp: debug
+
+#阿里云OSS
+#不同的服务器，地址不同
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      keyid: LTAI5tBAGMqh9KRNcDCKzkSF
+      keysecret: qZwuVMLfiSKivJWDwwJGRfELZR228c
+      bucketname: myblog-imge
