@@ -5,13 +5,13 @@ spring:
     name: hmdp
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://8.137.11.22:3306/hmdp?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://xxxx:3306/hmdp?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: 'lijun456789'
+    password: 'xxxxx'
   redis:
-    host: 8.137.11.22
+    host: xxxxxxx
     port: 6379
-    password: 1234567
+    password: xxxxxx
     lettuce:
       pool:
         max-active: 11
@@ -32,6 +32,6 @@ aliyun:
   oss:
     file:
       endpoint: oss-cn-beijing.aliyuncs.com
-      keyid: LTAI5tBAGMqh9KRNcDCKzkSF
-      keysecret: qZwuVMLfiSKivJWDwwJGRfELZR228c
-      bucketname: myblog-imge
+      keyid: xxxxx
+      keysecret: xxxxxx
+      bucketname: xxxxx 
