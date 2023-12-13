@@ -20,14 +20,14 @@ import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import sun.rmi.runtime.Log;
+
 
 import javax.annotation.Resource;
 
@@ -54,6 +54,9 @@ class HmDianPingApplicationTests {
     private RedisIdWorkerRe redisIdWorkerRe;
     @Resource
     private IUserService UserServiceImpl;
+
+    @Resource
+    private RabbitTemplate rabbitTemplate;
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
@@ -175,6 +178,15 @@ class HmDianPingApplicationTests {
             });
             stringRedisTemplate.opsForGeo().add(key,locations);
         }
+    }
+
+    @Test
+    void testSendMessage2Queue() {
+        String queueName = "order.exchange";
+        Map<String,String> map = new HashMap<>();
+        map.put("name","jack");
+        map.put("age","18");
+        rabbitTemplate.convertAndSend(queueName, map);
     }
 
 }

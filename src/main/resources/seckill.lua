@@ -29,8 +29,8 @@ end
 redis.call('incrby',stockKey,-1)
 --将用户添加到set集合中
 redis.call('sadd',orderKey,userId)
---发送消息到队列中，XADD stream.order *  k1, v1, k2, v2
-redis.call('XADD','stream.orders','*','userId',userId,'voucherId',voucherId,'id',orderId)
+--发送消息到队列中，XADD stream.order *  k1, v1, k2, v2,后续用rabbitmq实现
+-- redis.call('XADD','stream.orders','*','userId',userId,'voucherId',voucherId,'id',orderId)
 return 0
 
 

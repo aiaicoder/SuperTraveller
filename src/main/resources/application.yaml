@@ -5,6 +5,7 @@ spring:
     name: hmdp
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
+<<<<<<< HEAD
     url: jdbc:mysql://xxxx:3306/hmdp?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 'xxxxx'
@@ -12,6 +13,15 @@ spring:
     host: xxxxxxx
     port: 6379
     password: xxxxxx
+=======
+    url: jdbc:mysql://101.200.162.134:3306/hmdp?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 'lijun456789'
+  redis:
+    host: 101.200.162.134
+    port: 6379
+    password: lijun456789
+>>>>>>> 37e1d29 (使用了mq作为消息队列，实现了订单超时取消订单的功能)
     lettuce:
       pool:
         max-active: 11
@@ -20,6 +30,22 @@ spring:
         time-between-eviction-runs: 10s
   jackson:
     default-property-inclusion: non_null # JSON处理时忽略非空字段
+<<<<<<< HEAD
+=======
+  rabbitmq:
+    username: xxx
+    password: xxx
+    host: xxx
+    port: 5672
+    virtual-host: dp
+    listener:
+      simple:
+        acknowledge-mode: auto
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1000ms
+>>>>>>> 37e1d29 (使用了mq作为消息队列，实现了订单超时取消订单的功能)
 mybatis-plus:
   type-aliases-package: com.hmdp.entity # 别名扫描包
 logging:
@@ -32,6 +58,9 @@ aliyun:
   oss:
     file:
       endpoint: oss-cn-beijing.aliyuncs.com
+<<<<<<< HEAD
       keyid: xxxxx
       keysecret: xxxxxx
       bucketname: xxxxx 
+=======
+>>>>>>> 37e1d29 (使用了mq作为消息队列，实现了订单超时取消订单的功能)
